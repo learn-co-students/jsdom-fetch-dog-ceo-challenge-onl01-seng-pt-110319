@@ -56,16 +56,29 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ulTag.addEventListener("click", function(event) {
         event.target.style.color = 'blue';
     })
+    
 
-        const dropdown = document.getElementById('breed-dropdown').addEventListener('click', function(event) {
+    
+        const dropdown = document.getElementById('breed-dropdown').addEventListener('change', function(event) {
 
-            console.log(event.target)
+            let input = document.getElementById('breed-dropdown').value
             const list = document.getElementById('dog-breeds').innerText;
 
-            // let test = list.startsWith("a", "b", "c", "d")
+            if (input === 'a') {
+                // do something
+                // let test = list.toString()
+            }  
+             else if (input === 'b') {
+                 // do something
+            }
+            else if (input === 'c') {
+                // do something
+            } 
+            else if (input === 'd') {
+                // do something
+            }
 
-            // console.log(list.startsWith("a"))
-
+        
         })
 
     
