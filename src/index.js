@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-	const breedLinest = document.getElementById("dog-breeds");
+	const breedSection = document.getElementById("dog-breeds");
 	const dropdown = document.getElementById("breed-dropdown");
 
 	dropdown.addEventListener("change", function (event) {
 		filterBreeds(event.target.value);
 	});
 
-	breedLinest.addEventListener("click", function (event) {
+	breedSection.addEventListener("click", function (event) {
 		event.target.style.color = "green";
 	});
 
@@ -40,28 +40,28 @@ function fetchBreeds() {
 }
 
 function showBreeds(breeds) {
-	const breedsSection = document.getElementById("dog-breeds");
+	const breedSection = document.getElementById("dog-breeds");
 	breedKeys = Object.keys(breeds.message);
 	breedKeys.forEach((breed) => {
 		breedsArr.push(breed);
 		const breedLine = document.createElement("li");
 		breedLine.innerText = breed;
 		breedLine.style.cursor = "pointer";
-		breedsSection.appendChild(breedLine);
+		breedSection.appendChild(breedLine);
 	});
 }
 
 function filterBreeds(letter) {
-	const breedsSection = document.getElementById("dog-breeds");
-	let child = breedsSection.lastElementChild;
+	const breedSection = document.getElementById("dog-breeds");
+	let child = breedSection.lastElementChild;
 	while (child) {
-		breedsSection.removeChild(child);
-		child = breedsSection.lastElementChild;
+		breedSection.removeChild(child);
+		child = breedSection.lastElementChild;
 	}
 	let filtered = breedsArr.filter((breed) => breed.startsWith(letter));
 	filtered.forEach((breed) => {
 		const breedLine = document.createElement("li");
 		breedLine.innerText = breed;
-		breedsSection.appendChild(breedLine);
+		breedSection.appendChild(breedLine);
 	});
 }
