@@ -1,6 +1,8 @@
 // console.log('%c HI', 'color: firebrick')
 
 
+
+const breedsArr = []
 document.addEventListener("DOMContentLoaded", (event) => {
 
     function fetchPictures() {
@@ -56,27 +58,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
     ulTag.addEventListener("click", function(event) {
         event.target.style.color = 'blue';
     })
-    
+
+    function filterBreeds(letter) {
+
+        const breedsUl = document.getElementById("dog-breeds");
+        let child = breedsUl.lastElementChild;
+        while (child) {
+            breedsUl.removeChild(child);
+            child = breedsUl.lastElementChild;
+        };
+        let filtered = breedsArr.filter(breed => breed.startsWith(letter));
+        filtered.forEach(breed => {
+            const liTag = document.createElement("li")
+            liTag.innerText = breed
+            breedsUl.appendChild(liTag)
+        });
+    }
+
+    filterBreeds();
 
     
         const dropdown = document.getElementById('breed-dropdown').addEventListener('change', function(event) {
+            
 
-            let input = document.getElementById('breed-dropdown').value
-            const list = document.getElementById('dog-breeds').innerText;
+            
+            filterBreeds(event.target.value);
 
-            if (input === 'a') {
-                // do something
-                // let test = list.toString()
-            }  
-             else if (input === 'b') {
-                 // do something
-            }
-            else if (input === 'c') {
-                // do something
-            } 
-            else if (input === 'd') {
-                // do something
-            }
 
         
         })
