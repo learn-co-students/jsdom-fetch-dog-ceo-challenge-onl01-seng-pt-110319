@@ -43,16 +43,20 @@ function renderBreeds(breeds) {
 	let filter = document.getElementById('breed-dropdown')	
 	filter.addEventListener('change', function() {
 		if (filter.value === "b") {
-			console.log("hi")
+		 	let result = array.filter(dog => dog.startsWith("b"))
+		 	ul.innerHTML = result
 		}
 		else if (filter.value === "a") {
-			console.log("hey")
+			let result_1 = array.filter(dog => dog.startsWith("a"))
+		 	ul.innerHTML = result_1
 		}
 		else if (filter.value === "c") {
-			console.log("sup")
+			let result_2 = array.filter(dog => dog.startsWith("c"))
+		 	ul.innerHTML = result_2
 		}
 		else if (filter.value === "d") {
-			console.log("yo")
+			let result_3 = array.filter(dog => dog.startsWith("d"))
+		 	ul.innerHTML = result_3
 		}
 		else console.log("all")
 	})
